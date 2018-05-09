@@ -12,5 +12,8 @@ for d in ftdetect indent syntax ; do wget -O ~/.vim/$d/scala.vim https://raw.git
 echo "Updating vimrc ..."
 cp .vimrc ~/.vimrc
 
+echo "Updating tmux.conf ..."
+cp .tmux.conf ~/.tmux.conf
+
 echo "Installing vim plugins ..."
 vim +BundleInstall +qall

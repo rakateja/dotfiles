@@ -3,6 +3,7 @@ filetype plugin indent on
 syntax on
 color molokai
 
+set term=screen-256color
 set backspace=indent,eol,start
 
 " set the runtime path to include Vundle and initialize
@@ -22,7 +23,7 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'HTML-AutoCloseTag'
-
+Plugin 'jiangmiao/auto-pairs'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo

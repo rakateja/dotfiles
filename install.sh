@@ -5,3 +5,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "Cloning molokai color ..."
 wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -O ~/.vim/colors/molokai.vim
 
+echo "Updating vimrc ..."
+cp .vimrc ~/.vimrc
+
+echo "Installing vim plugins ..."
+vim +BundleInstall +qall

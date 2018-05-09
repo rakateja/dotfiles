@@ -21,6 +21,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'HTML-AutoCloseTag'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.

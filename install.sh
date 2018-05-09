@@ -3,6 +3,7 @@ echo "Cloning Vundle ..."
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "Cloning molokai color ..."
+mkdir -p ~/.vim/colors
 wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -O ~/.vim/colors/molokai.vim
 
 echo "Cloning scala vim ..."
@@ -14,3 +15,6 @@ cp .vimrc ~/.vimrc
 
 echo "Installing vim plugins ..."
 vim +BundleInstall +qall
+
+echo "Installing go binaries for vim-go"
+vim +GoInstallBinaries +qall

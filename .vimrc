@@ -3,6 +3,7 @@ filetype plugin indent on
 syntax on
 color molokai
 
+set term=screen-256color
 set backspace=indent,eol,start
 
 " set the runtime path to include Vundle and initialize

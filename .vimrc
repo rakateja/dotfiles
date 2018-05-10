@@ -20,13 +20,14 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'fatih/vim-go'
 Plugin 'itchyny/lightline.vim'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'HTML-AutoCloseTag'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'ensime/ensime-vim'
+" Plugin 'ktvoelker/sbt-vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -83,17 +84,43 @@ let g:ctrlp_working_path_mode = 0
 
 let g:scala_scaladoc_indent = 2
 
-map <C-n> :NERDTreeToggle<CR>
-
 let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+	let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.scala = '[^. *\t]\.\w*\|: [A-Z]\w*'
+" tern
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
+
+" set source
 let g:deoplete#sources = {}
 let g:deoplete#sources.cpp = ['LanguageClient']
 let g:deoplete#sources.python = ['LanguageClient']
 let g:deoplete#sources.python3 = ['LanguageClient']
 let g:deoplete#sources.rust = ['LanguageClient']
 let g:deoplete#sources.c = ['LanguageClient']
+let g:deoplete#sources.go = ['LanguageClient']
 let g:deoplete#sources.vim = ['vim']
+
+map <C-n> :NERDTreeToggle<CR>
 
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>

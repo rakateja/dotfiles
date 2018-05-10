@@ -24,6 +24,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'HTML-AutoCloseTag'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -80,6 +84,16 @@ let g:ctrlp_working_path_mode = 0
 let g:scala_scaladoc_indent = 2
 
 map <C-n> :NERDTreeToggle<CR>
+
+let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#sources = {}
+let g:deoplete#sources.cpp = ['LanguageClient']
+let g:deoplete#sources.python = ['LanguageClient']
+let g:deoplete#sources.python3 = ['LanguageClient']
+let g:deoplete#sources.rust = ['LanguageClient']
+let g:deoplete#sources.c = ['LanguageClient']
+let g:deoplete#sources.vim = ['vim']
 
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>

@@ -26,7 +26,6 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'ensime/ensime-vim'
 " Plugin 'ktvoelker/sbt-vim'
 
 " The following are examples of different formats supported.

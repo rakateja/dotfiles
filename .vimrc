@@ -121,6 +121,8 @@ let g:deoplete#sources.vim = ['vim']
 
 map <C-n> :NERDTreeToggle<CR>
 
+set colorcolumn=120
+
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>
 nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
